@@ -1,0 +1,648 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_namaLingkungan",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "nik",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "namaLengkap",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tanggal",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "petugas",
+						"type": "address"
+					}
+				],
+				"name": "MutasiKeluarDicatat",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "nik",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "namaLengkap",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tanggal",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "petugas",
+						"type": "address"
+					}
+				],
+				"name": "MutasiMasukDicatat",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "petugas",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "PetugasDidaftarkan",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalMasuk",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalKeluar",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalAktif",
+						"type": "uint256"
+					}
+				],
+				"name": "StatistikDiperbarui",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum MutasiPenduduk.StatusVerifikasi",
+						"name": "statusBaru",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oleh",
+						"type": "address"
+					}
+				],
+				"name": "StatusDiperbarui",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nik",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_namaLengkap",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_alamatTujuan",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_alasanMutasi",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_nomorSuratPindah",
+						"type": "string"
+					}
+				],
+				"name": "catatMutasiKeluar",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nik",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_namaLengkap",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_alamatAsal",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_alasanMutasi",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_nomorSuratPindah",
+						"type": "string"
+					}
+				],
+				"name": "catatMutasiMasuk",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nik",
+						"type": "string"
+					}
+				],
+				"name": "cekNIKAktif",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getCatatanMutasi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "nik",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "namaLengkap",
+								"type": "string"
+							},
+							{
+								"internalType": "enum MutasiPenduduk.JenisMutasi",
+								"name": "jenis",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "alamatAsal",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "alamatTujuan",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "alasanMutasi",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tanggalMutasi",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "petugasPencatat",
+								"type": "address"
+							},
+							{
+								"internalType": "enum MutasiPenduduk.StatusVerifikasi",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "nomorSuratPindah",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "aktif",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct MutasiPenduduk.CatatanMutasi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_offset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_limit",
+						"type": "uint256"
+					}
+				],
+				"name": "getListMutasi",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "total",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nik",
+						"type": "string"
+					}
+				],
+				"name": "getRiwayatNIK",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStatistik",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalMasuk",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalKeluar",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalAktif",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "lingkungan",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalMutasi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_petugas",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_status",
+						"type": "bool"
+					}
+				],
+				"name": "kelolaPetugas",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "namaLingkungan",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum MutasiPenduduk.StatusVerifikasi",
+						"name": "_status",
+						"type": "uint8"
+					}
+				],
+				"name": "perbaruiStatusVerifikasi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "petugasBerwenang",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "statistik",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalMasuk",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalKeluar",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalAktif",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdated",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Sistem Kelurahan Digital Fitur Utama: - Integritas Data: Setiap catatan mutasi tersimpan permanen di blockchain - Verifikasi: Hanya petugas berwenang yang dapat mencatat mutasi - Transparansi: Semua warga dapat melihat statistik kependudukan - Otomatisasi: Statistik dihitung otomatis tanpa rekap manual",
+			"details": "Smart Contract untuk Pencatatan Log Keluar-Masuk Penduduk (Mutasi)",
+			"kind": "dev",
+			"methods": {
+				"catatMutasiKeluar(string,string,string,string,string)": {
+					"details": "Catat warga yang KELUAR dari lingkungan",
+					"params": {
+						"_alamatTujuan": "Alamat tujuan setelah pindah",
+						"_alasanMutasi": "Alasan pindah keluar",
+						"_namaLengkap": "Nama lengkap warga",
+						"_nik": "NIK warga (16 digit)",
+						"_nomorSuratPindah": "Nomor dokumen surat pindah resmi"
+					}
+				},
+				"catatMutasiMasuk(string,string,string,string,string)": {
+					"details": "Catat warga yang MASUK ke lingkungan",
+					"params": {
+						"_alamatAsal": "Alamat asal sebelum pindah",
+						"_alasanMutasi": "Alasan pindah masuk",
+						"_namaLengkap": "Nama lengkap warga",
+						"_nik": "NIK warga (16 digit)",
+						"_nomorSuratPindah": "Nomor dokumen surat pindah resmi"
+					}
+				},
+				"cekNIKAktif(string)": {
+					"details": "Cek apakah NIK terdaftar aktif di lingkungan"
+				},
+				"constructor": {
+					"details": "Inisialisasi kontrak dengan nama lingkungan",
+					"params": {
+						"_namaLingkungan": "Nama RT/RW/Kelurahan yang menggunakan sistem ini"
+					}
+				},
+				"getCatatanMutasi(uint256)": {
+					"details": "Ambil detail satu catatan mutasi berdasarkan ID"
+				},
+				"getListMutasi(uint256,uint256)": {
+					"details": "Ambil daftar ID mutasi dengan pagination",
+					"params": {
+						"_limit": "Jumlah data yang diambil",
+						"_offset": "Indeks awal"
+					}
+				},
+				"getRiwayatNIK(string)": {
+					"details": "Ambil semua ID mutasi milik satu NIK"
+				},
+				"getStatistik()": {
+					"details": "Ambil statistik kependudukan lengkap"
+				},
+				"getTotalMutasi()": {
+					"details": "Ambil total jumlah catatan mutasi"
+				},
+				"kelolaPetugas(address,bool)": {
+					"details": "Daftarkan atau cabut akses petugas",
+					"params": {
+						"_petugas": "Alamat wallet petugas",
+						"_status": "true = aktifkan, false = nonaktifkan"
+					}
+				},
+				"perbaruiStatusVerifikasi(uint256,uint8)": {
+					"details": "Perbarui status verifikasi dokumen mutasi",
+					"params": {
+						"_id": "ID catatan mutasi",
+						"_status": "Status verifikasi baru"
+					}
+				}
+			},
+			"title": "MutasiPenduduk",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Capstone Project - Smart Contract Technology",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MutasiPenduduk.sol": "MutasiPenduduk"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"MutasiPenduduk.sol": {
+			"keccak256": "0xe5904821e9439b8dcc60cf4e3c07229b1302731f1f1e7682264e04b1861f0563",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://855aa3ddcdf3cbd51e87b6143d52c44d8bded5119004c6aa732bbe8e230c9ec5",
+				"dweb:/ipfs/QmWBw2vuheARN2o8uXcu6Viozamdt9JEpCsNbVjkqjyQBN"
+			]
+		}
+	},
+	"version": 1
+}
